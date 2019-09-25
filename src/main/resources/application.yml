@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    username: ENC(myrRFMhCTOn1fG6xaM95Xg==)
+    password: ENC(iYaXZEjRu+my6/qq+q47+VVDrWNwoCKd)
+    url: jdbc:mysql://139.155.36.77:3306/fund?useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    encoding: UTF-8
+    enabled: true
+    suffix: .html
+    prefix: classpath:/templates/
+    enable-spring-el-compiler: true #使用El
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /
+      suffix: .html
+# 打印sql
+logging:
+  level:
+     com.heioky.ok.schedule.dao: debug
+# MyBatis
+mybatis:
+  type-aliases-package: com.chaohen.fund.analysis.domain
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+# 默认加密方式PBEWithMD5AndDES,可以更改为PBEWithMD5AndTripleDES，这里我选择的是默认的
+jasypt:
+  encryptor:
+    password: kenengshiba
+#   algorithm: PBEWithMD5AndTripleDES
